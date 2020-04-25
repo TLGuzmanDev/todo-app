@@ -1,3 +1,47 @@
 * {
     box-sizing: border-box;
+    /* color pallete
+    #f0f5f9
+    #c9d6df
+    #52616b
+    #1e2022 
+    */
+}
+
+body {
+  margin: 0;
+  background-color: #f0f5f9;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #52616b;
+  height: 10vh;
+}
+
+#header h1 {
+  margin: 0;
+  font-family: monospace;
+  font-size: 40px;
+  color: #f0f5f9;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 90vh;
+}
+
+#projects {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #c9d6df;
+}
+
+#todo-list {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f0f5f9;
 }
