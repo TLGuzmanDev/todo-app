@@ -34,14 +34,73 @@ main {
   height: 90vh;
 }
 
-#projects {
-  display: flex;
-  flex-wrap: wrap;
+#project-section {
+  padding: 20px 20px 0 20px;
   background-color: #c9d6df;
+  color: #52616b;
+  font-family: monospace;
 }
 
-#todo-list {
+#project-section h2 {
+  margin: 0 0 10px 0;
+  font-size: 30px;
+}
+
+#project-list {
+  margin: 0;
+  padding-left: 10px;
+  list-style-type: none;
+}
+
+#project-list li {
+  margin: 0 0 7px 0;
+  font-size: 20px;
+}
+
+#add-project {
   display: flex;
-  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+#add-project-icon {
+  padding: 5px;
+  font-size: 20px;
+}
+
+#add-project-icon:hover {
+  color: #c9d6df;
+  background-color: #52616b;
+}
+
+#add-project-icon:active {
+  color: #c9d6df;
+  background-color: #52616b;
+  transform: scale(1.1);
+}
+
+#project-input {
+  padding: 0 0 0 10px;
+  width: 200px;
+  line-height: 2em;
+  border: none;
+  background-color: #c9d6df;
+  font-family: monospace;
+  font-size: 20px;
+  color: #52616b;
+}
+
+#project-input:focus, #project-input:hover {
+  border-bottom: 2px solid #52616b;
+}
+
+#todo-section {
+  padding: 20px 20px 0 20px;
   background-color: #f0f5f9;
+  color: #52616b;
+  font-family: monospace;
+}
+
+#todo-section h2 {
+  margin: 0 0 10px 0;
+  font-size: 30px;
 }
