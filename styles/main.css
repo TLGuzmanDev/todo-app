@@ -36,7 +36,7 @@ main {
 
 /* start of project section styling */
 #project-section {
-  padding: 20px 20px 0 20px;
+  padding: 20px 0 0 20px;
   background-color: #c9d6df;
   color: #52616b;
   font-family: monospace;
@@ -49,19 +49,24 @@ main {
 
 #project-list {
   margin: 0;
-  padding-left: 10px;
+  padding: 0;
   list-style-type: none;
 }
 
 #project-list li {
-  margin: 0 0 7px 0;
-  font-size: 20px;
+  margin: 0 0 10px 0;
+  padding: 10px;
+  cursor: pointer;
 }
 
 #project-list li h3 {
   margin: 0;
   font-size: 20px;
   font-weight: normal;
+}
+
+#project-list .active {
+  background-color: #f0f5f9;
 }
 
 #add-project {
@@ -88,6 +93,7 @@ main {
   padding: 0;
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .add-icon {
@@ -130,6 +136,7 @@ main {
   width: 500px;
   height: 65px;
   border: 2px solid #52616b;
+  cursor: pointer;
 }
 
 #todo-list li input {
