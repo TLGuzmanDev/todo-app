@@ -34,6 +34,7 @@ main {
   height: 90vh;
 }
 
+/* start of project section styling */
 #project-section {
   padding: 20px 20px 0 20px;
   background-color: #c9d6df;
@@ -62,22 +63,6 @@ main {
   align-items: baseline;
 }
 
-#add-project-icon {
-  padding: 5px;
-  font-size: 20px;
-}
-
-#add-project-icon:hover {
-  color: #c9d6df;
-  background-color: #52616b;
-}
-
-#add-project-icon:active {
-  color: #c9d6df;
-  background-color: #52616b;
-  transform: scale(1.1);
-}
-
 #project-input {
   padding: 0 0 0 10px;
   width: 200px;
@@ -93,6 +78,27 @@ main {
   border-bottom: 2px solid #52616b;
 }
 
+.submit-btn{
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.add-icon {
+  padding: 5px 7px;
+  font-size: 20px;
+}
+
+.add-icon:hover {
+  transform: scale(1.1);
+}
+
+.add-icon:active {
+  transform: scale(1.2);
+}
+
+
+/* start of todo section styling */
 #todo-section {
   padding: 20px 20px 0 20px;
   background-color: #f0f5f9;
@@ -103,4 +109,56 @@ main {
 #todo-section h2 {
   margin: 0 0 10px 0;
   font-size: 30px;
+}
+
+#todo-list {
+  margin: 0;
+  padding-left: 10px;
+  list-style-type: none;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: center;
+  margin: 0 0 7px 0;
+  width: 500px;
+  height: 65px;
+  border: 2px solid #52616b;
+}
+
+#todo-list li input {
+  margin: 0 0 0 15px;
+  padding: 10px;
+  margin-right: 5px;
+}
+
+#todo-list li h3{
+  margin: 0 0 0 5px;
+  padding: 0 0 0 10px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+#add-todo {
+  display: flex;
+  align-items: baseline;
+  margin: 0 0 0 10px;
+  width: 500px;
+  height: 65px;
+  border: 2px solid #52616b;
+}
+
+#submit-todo {
+  margin-left: 15px;
+}
+
+#title-input {
+  margin-left: 5px;
+  padding: 0 0 0 10px;
+  height: 100%;
+  border: none;
+  background-color: #f0f5f9;
+  font-family: monospace;
+  font-size: 20px;
+  color: #52616b;
 }
