@@ -34,7 +34,7 @@ function addTodoToProject(todo) {
   let projectList = getLocalProjects();
   let title = document.querySelector('#todo-title').textContent;
   for (let project of projectList) {
-    if(project.getTitle().toUpperCase() === title) {
+    if(project.getTitle().toUpperCase() === title.toUpperCase()) {
       project.addTodo(todo);
       console.log(`add ${todo.getTitle()} to ${project.getTitle()}`);
     }
@@ -48,8 +48,10 @@ function loadTodoList(project) {
 }
 
 function selectProject(project) {
+  let title = project.getTitle();
   clearList();
-  setTodoTitle(project.getTitle());
+  setProjectActive(title);
+  setTodoTitle(title);
   loadTodoList(project);
 }
 
@@ -61,6 +63,16 @@ function clearList() {
   document.querySelector('#todo-list').textContent = '';
 }
 
+function setProjectActive(title) {
+  let projectList = document.querySelector('#project-list').childNodes;
+  projectList.forEach((element) => {
+    if (element.querySelector('h3').textContent === title) {
+      element.classList.add('active');
+    } else {
+      element.classList.remove('active');
+    }
+  });
+}
 
 export { 
   addProject, 

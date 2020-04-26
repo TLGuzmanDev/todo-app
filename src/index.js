@@ -20,8 +20,11 @@ document.querySelector('#submit-project').addEventListener('click', (e) => {
   let title = document.querySelector('#project-input').value;
   if (title) {
     let project = Project(title, []);
-    addProject(project, localProjects.length);
+    let index = localProjects.length;
     localProjects.push(project);
+    addProject(project, index);
+    selectProject(localProjects[index]);
+    console.log(`added ${title} to projects at index ${index}`);
   }
   document.querySelector('#add-project').reset();
   e.preventDefault();
