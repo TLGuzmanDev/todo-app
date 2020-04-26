@@ -13,16 +13,23 @@
       <main>
         <section id="project-section">
           <h2>Projects</h2>
-          <ul id="project-list">
-            <li>project 1</li>
-          </ul>
-          <div id="add-project">
+          <ul id="project-list"></ul>
+          <form id="add-project" action="">
             <input id="project-input" type="text" placeholder="add project...">
-            <i id="add-project-icon" class="fas fa-plus"></i>
-          </div>
+            <button id="submit-project" class="submit-btn" type="submit">
+              <i class="fas fa-plus add-icon"></i>
+            </button>
+          </form>
         </section>
         <section id="todo-section">
           <h2>Project 1</h2>
+          <ul id="todo-list"></ul>
+          <form id="add-todo" action="">
+            <button id="submit-todo" class="submit-btn" type="submit">
+              <i class="fas fa-plus add-icon"></i>
+            </button>
+            <input id="title-input" type="text" placeholder="task...">
+          </form>
         </section>
       </main>
   </body>
