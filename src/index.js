@@ -1,41 +1,24 @@
-import {Todo} from './todo';
-import {Project} from './project'
-import {addProject, addTodo, selectProject, addTodoToProject} from './dom'
-
+import { addProjectElement } from './project-dom';
+import { addTodoElement } from './todo-dom';
 
 let localProjects = [];
 
-let project = Project('project 1', []);
-let todo = Todo('task 1', 'des', 'due', 'p');
-let todo2 = Todo('task 2', 'des2', 'due2', 'p2');
-project.addTodo(todo);
-project.addTodo(todo2);
-localProjects.push(project);
-
-addProject(localProjects[0], 0);
-selectProject(localProjects[0]);
-
-
+// set project form action to create project
 document.querySelector('#submit-project').addEventListener('click', (e) => {
   let title = document.querySelector('#project-input').value;
   if (title) {
-    let project = Project(title, []);
-    let index = localProjects.length;
-    localProjects.push(project);
-    addProject(project, index);
-    selectProject(localProjects[index]);
-    console.log(`added ${title} to projects at index ${index}`);
+    addProjectElement(title);
   }
   document.querySelector('#add-project').reset();
   e.preventDefault();
 });
 
+
+// set todo form action to create todo
 document.querySelector('#submit-todo').addEventListener('click', (e) => {
   let title = document.querySelector('#title-input').value;
   if (title) {
-    let todo = Todo(title);
-    addTodo(todo);
-    addTodoToProject(todo);
+    addTodoElement(title);
   }
   document.querySelector('#add-todo').reset();
   e.preventDefault();
