@@ -54,9 +54,19 @@ main {
 }
 
 #project-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
   margin: 0 0 10px 0;
-  padding: 10px;
+}
+
+#project-list button {
+  padding: 15px 20px;
+  background: none;
+  border: none;
   cursor: pointer;
+  font-family: monospace;
+  color: #52616b;
 }
 
 #project-list li h3 {
@@ -68,6 +78,15 @@ main {
 #project-list .active {
   background-color: #f0f5f9;
 }
+
+.delete-project:hover {
+  transform: scale(1.1);
+}
+
+.delete-project:active {
+  transform: scale(1.2);
+}
+
 
 #add-project {
   display: flex;
