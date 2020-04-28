@@ -90,17 +90,21 @@ function setDeleteEvent(button, title) {
 function deleteProject(title) {
   let projectList = getLocalProjects();
   let index;
+
   for (let i = 0; i < projectList.length; i++) {
     if (projectList[i].getTitle() === title) {
       index = i;
     }
   }
+
   projectList.splice(index, 1);
   renderProjectList();
 
   // if project is not empty set last project to active
   if (projectList.length > 0) {
     setProjectActive(projectList[projectList.length - 1].getTitle())
+  } else {
+    renderTodoList();
   }
 }
 
