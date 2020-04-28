@@ -32,6 +32,7 @@ function createTodoElement(todo) {
   const dateInput = createDateInput(todo);
   const priorityInput = createPriortyInput(todo);
   const descriptionInput = createDesInput(todo);
+  const expandBtn = createExpandBtn();
 
   checkbox.type = 'checkbox';
   deleteBtn.type = 'button';
@@ -50,9 +51,33 @@ function createTodoElement(todo) {
   todoElement.appendChild(dateInput);
   todoElement.appendChild(priorityInput);
   todoElement.appendChild(descriptionInput);
+  todoElement.appendChild(expandBtn);
 
-  setTodoEvent(todoElement, priorityInput, descriptionInput);
+  setExpandEvent(expandBtn, priorityInput, descriptionInput, todoElement);
   return todoElement;
+}
+
+function createExpandBtn() {
+  const expandBtn = document.createElement('button');
+  expandBtn.type = 'button';
+  expandBtn.value = 'open';
+  expandBtn.classList.add('expand');
+  expandBtn.appendChild(createOpenCloseIcon(expandBtn));
+  return expandBtn;
+}
+
+function createOpenCloseIcon(button) {
+  let option = button.value;
+  const icon = document.createElement('i');
+  icon.classList.add('fas');
+  if (option === 'open') {
+    icon.classList.add('fa-angle-double-down');
+    button.value = 'closed'
+  } else {
+    icon.classList.add('fa-angle-double-up');
+    button.value = 'open';
+  }
+  return icon;
 }
 
 function createDateInput(todo) {
@@ -99,15 +124,13 @@ function createPriortyInput(todo) {
   return select;
 }
 
-function setTodoEvent(button, input1, input2) {
+function setExpandEvent(button, input1, input2, container) {
   button.addEventListener('click', (e) => {
-    if (e.target !== e.currentTarget) {
-      return;
-    } else {
-      button.classList.toggle('expanded');
-      input1.classList.toggle('hidden');
-      input2.classList.toggle('hidden');
-    }
+    button.textContent = ''
+    button.appendChild(createOpenCloseIcon(button));
+    container.classList.toggle('expanded');
+    input1.classList.toggle('hidden');
+    input2.classList.toggle('hidden');
   });
 }
 
