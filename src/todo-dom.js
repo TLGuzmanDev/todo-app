@@ -92,7 +92,6 @@ function renderTodoList(projectTitle) {
       let title = todo.getTitle();
       parentNode.appendChild(createTodoElement(title));
     }
-    console.log('test');
   }
 }
 

@@ -7,7 +7,11 @@ let localProjects = [];
 document.querySelector('#submit-project').addEventListener('click', (e) => {
   let title = document.querySelector('#project-input').value;
   if (title) {
-    addProjectElement(title);
+    if (isProjectDuplicate(title)) {
+      alert('Duplicate project name unsupported.');
+    } else {
+      addProjectElement(title);
+    }
   }
   document.querySelector('#add-project').reset();
   e.preventDefault();
@@ -26,6 +30,15 @@ document.querySelector('#submit-todo').addEventListener('click', (e) => {
 
 function getLocalProjects() {
   return localProjects;
+}
+
+function isProjectDuplicate(title) {
+  for (let project of localProjects) {
+    if (project.getTitle() === title) {
+      return true;
+    } 
+  }
+  return false;
 }
 
 export { getLocalProjects };
