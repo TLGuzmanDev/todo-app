@@ -157,6 +157,15 @@ main {
   cursor: pointer;
 }
 
+#todo-list li.expanded{
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 500px;
+  height: 250px;
+  border: 2px solid red;
+  cursor: pointer;
+}
+
 #todo-list li input {
   margin: 0 0 0 15px;
   padding: 10px;
@@ -213,4 +222,8 @@ main {
   font-family: monospace;
   font-size: 20px;
   color: #52616b;
+}
+
+.hidden {
+  display: none;
 }
