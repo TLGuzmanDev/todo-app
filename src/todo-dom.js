@@ -8,7 +8,7 @@ function addTodoElement(title) {
   const parentNode = document.querySelector('#todo-list');
   let project = getProject();
   let todo = Todo(title);
-  let todoElement = createTodoElement(title);
+  let todoElement = createTodoElement(todo);
 
   if (project) {
     project.addTodo(todo);
@@ -22,7 +22,8 @@ function addTodoElement(title) {
 }
 
 /* create todo list item and return it */
-function createTodoElement(title) {
+function createTodoElement(todo) {
+  let title = todo.getTitle();
   const todoElement = document.createElement('li');
   const checkbox = document.createElement('input');
   const heading = document.createElement('h3');
@@ -43,7 +44,29 @@ function createTodoElement(title) {
   todoElement.appendChild(checkbox);
   todoElement.appendChild(heading);
   todoElement.appendChild(deleteBtn);
+  todoElement.appendChild(createDateInput(todo));
   return todoElement;
+}
+
+function createDateInput(todo) {
+  let dateString = todo.getDueDate();
+  const dateInput = document.createElement('input');
+  dateInput.classList.add('date');
+  dateInput.type = 'date';
+  dateInput.value = dateString;
+  setDateEvent(dateInput, todo);
+  return dateInput;
+}
+
+
+function createTodoExpand() {
+  
+}
+
+function setDateEvent(button, todo) {
+  button.addEventListener('change', () => {
+    todo.setDueDate(button.value);
+  }); 
 }
 
 function setCheckboxEvent(button, heading) {
@@ -89,8 +112,7 @@ function renderTodoList(projectTitle) {
     todoHeading.textContent = projectTitle;
     let project = getProject();
     for (let todo of project.getTodoList()) {
-      let title = todo.getTitle();
-      parentNode.appendChild(createTodoElement(title));
+      parentNode.appendChild(createTodoElement(todo));
     }
   }
 }

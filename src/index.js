@@ -2,6 +2,7 @@ import { addProjectElement } from './project-dom';
 import { addTodoElement } from './todo-dom';
 
 let localProjects = [];
+addProjectElement('Task List'); // create default project
 
 // set project form action to create project
 document.querySelector('#submit-project').addEventListener('click', (e) => {
