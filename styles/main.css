@@ -154,7 +154,6 @@ main {
   width: 500px;
   height: 65px;
   border: 2px solid #52616b;
-  cursor: pointer;
 }
 
 #todo-list li.expanded{
@@ -184,7 +183,7 @@ main {
 }
 
 #todo-list button {
-  padding: 15px 20px;
+  padding: 10px;
   background: none;
   border: none;
   cursor: pointer;
@@ -226,4 +225,9 @@ main {
 
 .hidden {
   display: none;
+}
+
+.description {
+  padding: 10px;
+  margin: 0 auto;
 }
