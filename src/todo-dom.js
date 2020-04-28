@@ -29,6 +29,9 @@ function createTodoElement(todo) {
   const heading = document.createElement('h3');
   const deleteIcon = document.createElement('i');
   const deleteBtn = document.createElement('button');
+  const dateInput = createDateInput(todo);
+  const priorityInput = createPriortyInput(todo);
+  const descriptionInput = createDesInput(todo);
 
   checkbox.type = 'checkbox';
   deleteBtn.type = 'button';
@@ -39,12 +42,16 @@ function createTodoElement(todo) {
   
   setCheckboxEvent(checkbox, heading);
   setDeleteEvent(deleteBtn, title);
-
+  
   deleteBtn.appendChild(deleteIcon);
   todoElement.appendChild(checkbox);
   todoElement.appendChild(heading);
   todoElement.appendChild(deleteBtn);
-  todoElement.appendChild(createDateInput(todo));
+  todoElement.appendChild(dateInput);
+  todoElement.appendChild(priorityInput);
+  todoElement.appendChild(descriptionInput);
+
+  setTodoEvent(todoElement, priorityInput, descriptionInput);
   return todoElement;
 }
 
@@ -58,14 +65,61 @@ function createDateInput(todo) {
   return dateInput;
 }
 
-
-function createTodoExpand() {
-  
+function createDesInput(todo) {
+  const descriptionInput = document.createElement('textarea');
+  descriptionInput.classList.add('description');
+  descriptionInput.classList.add('hidden');
+  descriptionInput.rows = '5';
+  descriptionInput.cols = '30';
+  descriptionInput.value = todo.getDescription();
+  setDesEvent(descriptionInput, todo);
+  return descriptionInput;
 }
 
-function setDateEvent(button, todo) {
-  button.addEventListener('change', () => {
-    todo.setDueDate(button.value);
+function createPriortyInput(todo) {
+  const select = document.createElement('select');
+  const option1 = document.createElement('option');
+  const option2 = document.createElement('option');
+  const option3 = document.createElement('option');
+
+  option1.value = 'low';
+  option2.value = 'med';
+  option3.value = 'high';
+  option1.textContent = 'low'
+  option2.textContent = 'med';
+  option3.textContent = 'high';
+
+  select.appendChild(option1);
+  select.appendChild(option2);
+  select.appendChild(option3);
+
+  select.classList.add('priority');
+  select.classList.add('hidden');
+
+  return select;
+}
+
+function setTodoEvent(button, input1, input2) {
+  button.addEventListener('click', (e) => {
+    if (e.target !== e.currentTarget) {
+      return;
+    } else {
+      button.classList.toggle('expanded');
+      input1.classList.toggle('hidden');
+      input2.classList.toggle('hidden');
+    }
+  });
+}
+
+function setDateEvent(input, todo) {
+  input.addEventListener('change', () => {
+    todo.setDueDate(input.value);
+  }); 
+}
+
+function setDesEvent(input, todo) {
+  input.addEventListener('change', () => {
+    todo.setDescription(input.value);
   }); 
 }
 

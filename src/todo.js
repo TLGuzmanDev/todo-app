@@ -1,12 +1,14 @@
 // A todo item
 
-const Todo = (title, description, dueDate, priority) => {
+const Todo = (title) => {
     let date = getDate();
+    let description = '';
+    let priority = undefined;
+
     const getTitle = () => title;
     const getDescription = () => description;
     const getDueDate = () => date;
     const getPriority = () => priority;
-
     const setTitle = (newTitle) => title = newTitle;
     const setDescription = (newDescription) => description = newDescription;
     const setDueDate = (newDate) => date = newDate;
