@@ -7,8 +7,8 @@ import { addProjectElement } from './project-dom';
 function addTodoElement(title) {
   const parentNode = document.querySelector('#todo-list');
   let project = getProject();
-  let todo = Todo(title);
-  let todoElement = createTodoElement(todo);
+  const todo = Todo(title);
+  const todoElement = createTodoElement(todo);
 
   if (project) {
     project.addTodo(todo);
@@ -23,7 +23,7 @@ function addTodoElement(title) {
 
 /* create todo list item and return it */
 function createTodoElement(todo) {
-  let title = todo.getTitle();
+  const title = todo.getTitle();
   const todoElement = document.createElement('li');
   const checkbox = document.createElement('input');
   const heading = document.createElement('h3');
@@ -67,7 +67,7 @@ function createExpandBtn() {
 }
 
 function createOpenCloseIcon(button) {
-  let option = button.value;
+  const option = button.value;
   const icon = document.createElement('i');
   icon.classList.add('fas');
   if (option === 'open') {
@@ -81,7 +81,7 @@ function createOpenCloseIcon(button) {
 }
 
 function createDateInput(todo) {
-  let dateString = todo.getDueDate();
+  const dateString = todo.getDueDate();
   const dateInput = document.createElement('input');
   dateInput.classList.add('date');
   dateInput.type = 'date';
@@ -101,7 +101,7 @@ function createDesInput(todo) {
   return descriptionInput;
 }
 
-function createPriortyInput(todo) {
+function createPriortyInput() {
   const select = document.createElement('select');
   const option1 = document.createElement('option');
   const option2 = document.createElement('option');
@@ -125,7 +125,7 @@ function createPriortyInput(todo) {
 }
 
 function setExpandEvent(button, input1, input2, container) {
-  button.addEventListener('click', (e) => {
+  button.addEventListener('click', () => {
     button.textContent = '';
     button.appendChild(createOpenCloseIcon(button));
     container.classList.toggle('expanded');
@@ -159,9 +159,9 @@ function setDeleteEvent(button, title) {
 }
 
 function deleteTodo(title) {
-  let project = getProject();
+  const project = getProject();
   if (project) {
-    let todoList = project.getTodoList();
+    const todoList = project.getTodoList();
     let index;
 
     for (let i = 0; i < todoList.length; i++) {
@@ -187,8 +187,8 @@ function renderTodoList(projectTitle) {
   if (projectTitle) {
     // set the project title as todo section heading
     todoHeading.textContent = projectTitle;
-    let project = getProject();
-    for (let todo of project.getTodoList()) {
+    const project = getProject();
+    for (const todo of project.getTodoList()) {
       parentNode.appendChild(createTodoElement(todo));
     }
   }
@@ -196,9 +196,9 @@ function renderTodoList(projectTitle) {
 
 /* get and return the active project */
 function getProject() {
-  let projectList = getLocalProjects();
-  let projectTitle = document.querySelector('#todo-heading').textContent;
-  for (let project of projectList) {
+  const projectList = getLocalProjects();
+  const projectTitle = document.querySelector('#todo-heading').textContent;
+  for (const project of projectList) {
     if (project.getTitle() === projectTitle) {
       return project;
     }

@@ -3,7 +3,7 @@
 const Todo = (title) => {
   let date = getDate();
   let description = '';
-  let priority = undefined;
+  let priority;
 
   const getTitle = () => title;
   const getDescription = () => description;
@@ -27,16 +27,16 @@ const Todo = (title) => {
 };
 
 function getDate() {
-  let date = new Date();
-  let year = date.getFullYear();
-  let month = date.getMonth();
-  let day = date.getDate();
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
 
   return `${year}-${addLeadingZero(month)}-${addLeadingZero(day)}`;
 }
 
 function addLeadingZero(n) {
-  return n < 10 ? '0' + n : '' + n;
+  return n < 10 ? `0${n}` : `${n}`;
 }
 
 export { Todo };

@@ -6,9 +6,9 @@ import { renderTodoList } from './todo-dom';
    then add it to the project list element */
 function addProjectElement(title) {
   const parentNode = document.querySelector('#project-list');
-  let projectList = getLocalProjects();
-  let project = Project(title, []);
-  let projectElement = createProjectElement(title);
+  const projectList = getLocalProjects();
+  const project = Project(title, []);
+  const projectElement = createProjectElement(title);
   projectList.push(project);
   parentNode.appendChild(projectElement);
   setProjectActive(title);
@@ -43,11 +43,11 @@ function createProjectElement(title) {
 /* render all projects */
 function renderProjectList() {
   const parentNode = document.querySelector('#project-list');
-  let projectList = getLocalProjects();
+  const projectList = getLocalProjects();
 
   parentNode.textContent = '';
-  for (let project of projectList) {
-    let title = project.getTitle();
+  for (const project of projectList) {
+    const title = project.getTitle();
     parentNode.appendChild(createProjectElement(title));
   }
   console.log('rendered project list');
@@ -59,14 +59,14 @@ function renderProjectList() {
 function addTitleEvent(button, title) {
   button.addEventListener('click', () => {
     setProjectActive(title);
-    console.log('selected project: ' + title);
+    console.log(`selected project: ${title}`);
   });
 }
 
-/* set project element with matching 
+/* set project element with matching
    title to class active and render its todo list */
 function setProjectActive(title) {
-  let projectList = document.querySelector('#project-list').childNodes;
+  const projectList = document.querySelector('#project-list').childNodes;
   projectList.forEach((element) => {
     if (element.querySelector('h3').textContent === title) {
       element.classList.add('active');
@@ -88,7 +88,7 @@ function setDeleteEvent(button, title) {
 
 /* delete project with matching title from array */
 function deleteProject(title) {
-  let projectList = getLocalProjects();
+  const projectList = getLocalProjects();
   let index;
 
   for (let i = 0; i < projectList.length; i++) {

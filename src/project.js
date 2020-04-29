@@ -2,7 +2,7 @@
 // import {Todo} from './todo';
 
 const Project = (title, todoList) => {
-  let id = createID();
+  const id = createID();
   const getTitle = () => title;
   const setTitle = (newTitle) => (title = newTitle);
   const getTodoList = () => todoList;
