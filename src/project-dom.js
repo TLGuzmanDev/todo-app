@@ -1,6 +1,6 @@
 import { getLocalProjects } from './index';
 import { Project } from './project';
-import { renderTodoList } from './todo-dom'
+import { renderTodoList } from './todo-dom';
 
 /* add project to project list array and
    then add it to the project list element */
@@ -102,7 +102,7 @@ function deleteProject(title) {
 
   // if project is not empty set last project to active
   if (projectList.length > 0) {
-    setProjectActive(projectList[projectList.length - 1].getTitle())
+    setProjectActive(projectList[projectList.length - 1].getTitle());
   } else {
     renderTodoList();
   }

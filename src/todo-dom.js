@@ -12,7 +12,7 @@ function addTodoElement(title) {
 
   if (project) {
     project.addTodo(todo);
-  }  else {
+  } else {
     addProjectElement('temp');
     project = getProject();
     project.addTodo(todo);
@@ -40,10 +40,10 @@ function createTodoElement(todo) {
   deleteIcon.classList.add('fas');
   deleteIcon.classList.add('fa-trash-alt');
   deleteBtn.classList.add('delete-todo');
-  
+
   setCheckboxEvent(checkbox, heading);
   setDeleteEvent(deleteBtn, title);
-  
+
   deleteBtn.appendChild(deleteIcon);
   todoElement.appendChild(checkbox);
   todoElement.appendChild(heading);
@@ -72,7 +72,7 @@ function createOpenCloseIcon(button) {
   icon.classList.add('fas');
   if (option === 'open') {
     icon.classList.add('fa-angle-double-down');
-    button.value = 'closed'
+    button.value = 'closed';
   } else {
     icon.classList.add('fa-angle-double-up');
     button.value = 'open';
@@ -110,7 +110,7 @@ function createPriortyInput(todo) {
   option1.value = 'low';
   option2.value = 'med';
   option3.value = 'high';
-  option1.textContent = 'low'
+  option1.textContent = 'low';
   option2.textContent = 'med';
   option3.textContent = 'high';
 
@@ -126,7 +126,7 @@ function createPriortyInput(todo) {
 
 function setExpandEvent(button, input1, input2, container) {
   button.addEventListener('click', (e) => {
-    button.textContent = ''
+    button.textContent = '';
     button.appendChild(createOpenCloseIcon(button));
     container.classList.toggle('expanded');
     input1.classList.toggle('hidden');
@@ -137,33 +137,33 @@ function setExpandEvent(button, input1, input2, container) {
 function setDateEvent(input, todo) {
   input.addEventListener('change', () => {
     todo.setDueDate(input.value);
-  }); 
+  });
 }
 
 function setDesEvent(input, todo) {
   input.addEventListener('change', () => {
     todo.setDescription(input.value);
-  }); 
+  });
 }
 
 function setCheckboxEvent(button, heading) {
   button.addEventListener('click', () => {
     heading.classList.toggle('completed');
-  })
+  });
 }
 
 function setDeleteEvent(button, title) {
   button.addEventListener('click', () => {
     deleteTodo(title);
-  })
+  });
 }
 
 function deleteTodo(title) {
-  let project = getProject(); 
+  let project = getProject();
   if (project) {
     let todoList = project.getTodoList();
     let index;
-    
+
     for (let i = 0; i < todoList.length; i++) {
       if (todoList[i].getTitle() === title) {
         index = i;
@@ -175,15 +175,15 @@ function deleteTodo(title) {
   }
 }
 
-/* render all todo items that belong to active project 
-   ** if no title is passed
-   ** clears heading and list */
+/* render all todo items that belong to active project
+ ** if no title is passed
+ ** clears heading and list */
 function renderTodoList(projectTitle) {
   const parentNode = document.querySelector('#todo-list');
   const todoHeading = document.querySelector('#todo-heading');
   todoHeading.textContent = '';
   parentNode.textContent = '';
-  
+
   if (projectTitle) {
     // set the project title as todo section heading
     todoHeading.textContent = projectTitle;

@@ -18,7 +18,6 @@ document.querySelector('#submit-project').addEventListener('click', (e) => {
   e.preventDefault();
 });
 
-
 // set todo form action to create todo
 document.querySelector('#submit-todo').addEventListener('click', (e) => {
   let title = document.querySelector('#title-input').value;
@@ -37,7 +36,7 @@ function isProjectDuplicate(title) {
   for (let project of localProjects) {
     if (project.getTitle() === title) {
       return true;
-    } 
+    }
   }
   return false;
 }

@@ -1,6 +1,6 @@
 * {
-    box-sizing: border-box;
-    /* color pallete
+  box-sizing: border-box;
+  /* color pallete
     #f0f5f9
     #c9d6df
     #52616b
@@ -87,7 +87,6 @@ main {
   transform: scale(1.2);
 }
 
-
 #add-project {
   display: flex;
   align-items: baseline;
@@ -104,11 +103,12 @@ main {
   color: #52616b;
 }
 
-#project-input:focus, #project-input:hover {
+#project-input:focus,
+#project-input:hover {
   border-bottom: 2px solid #52616b;
 }
 
-.submit-btn{
+.submit-btn {
   padding: 0;
   background: none;
   border: none;
@@ -136,7 +136,7 @@ main {
   font-family: monospace;
 }
 
-#todo-heading{
+#todo-heading {
   margin: 0 0 10px 0;
   font-size: 30px;
 }
@@ -156,7 +156,7 @@ main {
   border: 2px solid #52616b;
 }
 
-#todo-list li.expanded{
+#todo-list li.expanded {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 500px;
@@ -171,7 +171,7 @@ main {
   margin-right: 5px;
 }
 
-#todo-list li h3{
+#todo-list li h3 {
   margin: 0 0 0 5px;
   padding: 0 0 0 10px;
   font-size: 20px;

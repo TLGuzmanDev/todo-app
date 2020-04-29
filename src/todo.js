@@ -1,29 +1,29 @@
 // A todo item
 
 const Todo = (title) => {
-    let date = getDate();
-    let description = '';
-    let priority = undefined;
+  let date = getDate();
+  let description = '';
+  let priority = undefined;
 
-    const getTitle = () => title;
-    const getDescription = () => description;
-    const getDueDate = () => date;
-    const getPriority = () => priority;
-    const setTitle = (newTitle) => title = newTitle;
-    const setDescription = (newDescription) => description = newDescription;
-    const setDueDate = (newDate) => date = newDate;
-    const setPriority = (newPriority) => priority = newPriority;
+  const getTitle = () => title;
+  const getDescription = () => description;
+  const getDueDate = () => date;
+  const getPriority = () => priority;
+  const setTitle = (newTitle) => (title = newTitle);
+  const setDescription = (newDescription) => (description = newDescription);
+  const setDueDate = (newDate) => (date = newDate);
+  const setPriority = (newPriority) => (priority = newPriority);
 
-    return {
-        getTitle,
-        getDescription,
-        getDueDate,
-        getPriority,
-        setTitle,
-        setDescription,
-        setDueDate,
-        setPriority,
-    };
+  return {
+    getTitle,
+    getDescription,
+    getDueDate,
+    getPriority,
+    setTitle,
+    setDescription,
+    setDueDate,
+    setPriority,
+  };
 };
 
 function getDate() {
@@ -36,7 +36,7 @@ function getDate() {
 }
 
 function addLeadingZero(n) {
-  return (n < 10) ? '0' + n : '' + n;
+  return n < 10 ? '0' + n : '' + n;
 }
 
 export { Todo };
