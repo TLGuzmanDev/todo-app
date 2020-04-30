@@ -1,5 +1,5 @@
 import { getLocalProjects } from './index';
-import { Project } from './project';
+import Project from './project';
 import { renderTodoList } from './todo-dom';
 
 /* add project to project list array and

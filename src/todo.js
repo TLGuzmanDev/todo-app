@@ -39,4 +39,4 @@ function addLeadingZero(n) {
   return n < 10 ? `0${n}` : `${n}`;
 }
 
-export { Todo };
+export default Todo;

@@ -18,7 +18,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #52616b;
-  height: 10vh;
+  height: 100px;
 }
 
 #header h1 {
@@ -30,7 +30,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 300px 1fr;
   height: 90vh;
 }
 
@@ -38,7 +38,7 @@ main {
 #project-section {
   padding: 20px 0 0 20px;
   background-color: #c9d6df;
-  color: #52616b;
+  color: #1e2022;
   font-family: monospace;
 }
 
@@ -58,10 +58,15 @@ main {
   align-items: baseline;
   justify-content: space-between;
   margin: 0 0 10px 0;
+  height: 50px;
+}
+
+#project-list li:hover {
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 #project-list button {
-  padding: 15px 20px;
+  padding: 15px;
   background: none;
   border: none;
   cursor: pointer;
@@ -72,67 +77,59 @@ main {
 #project-list li h3 {
   margin: 0;
   font-size: 20px;
-  font-weight: normal;
 }
 
 #project-list .active {
   background-color: #f0f5f9;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-.delete-project:hover {
-  transform: scale(1.1);
+#project-list .active button {
+  color: #1e2022;
 }
 
-.delete-project:active {
-  transform: scale(1.2);
-}
-
+/* project form */
 #add-project {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
 }
 
 #project-input {
-  padding: 0 0 0 10px;
+  padding: 0 0 0 15px;
   width: 200px;
   line-height: 2em;
   border: none;
   background-color: #c9d6df;
   font-family: monospace;
   font-size: 20px;
-  color: #52616b;
+  color: #1e2022;
 }
 
 #project-input:focus,
 #project-input:hover {
-  border-bottom: 2px solid #52616b;
+  border-bottom: 2px solid #1e2022;
 }
 
 .submit-btn {
-  padding: 0;
   background: none;
   border: none;
   cursor: pointer;
 }
 
+#submit-project {
+  padding: 5px 15px;
+}
+
 .add-icon {
-  padding: 5px 7px;
-  font-size: 20px;
-}
-
-.add-icon:hover {
-  transform: scale(1.1);
-}
-
-.add-icon:active {
-  transform: scale(1.2);
+  font-size: 18px;
 }
 
 /* start of todo section styling */
 #todo-section {
-  padding: 20px 20px 0 20px;
+  padding: 20px 100px 0 100px;
   background-color: #f0f5f9;
-  color: #52616b;
+  color: #1e2022;
   font-family: monospace;
 }
 
@@ -141,6 +138,7 @@ main {
   font-size: 30px;
 }
 
+/* Todo List */
 #todo-list {
   margin: 0;
   padding-left: 0;
@@ -148,79 +146,67 @@ main {
 }
 
 #todo-list li {
-  display: flex;
+  display: grid;
+  grid-template-columns: 30px 1fr 125px 30px 30px;
   align-items: center;
-  margin: 0 0 7px 0;
-  width: 500px;
+  margin: 0;
   height: 65px;
-  border: 2px solid #52616b;
+  max-width: 800px;
+  border-bottom: 1px solid #c9d6df;
+}
+
+#todo-list li:hover {
+  border: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 #todo-list li.expanded {
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 500px;
+  grid-template-columns: 30px 1fr 125px 125px 30px;
+  grid-template-rows: 1fr 2fr;
   height: 250px;
-  border: 2px solid red;
-  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-#todo-list li input {
-  margin: 0 0 0 15px;
-  padding: 10px;
-  margin-right: 5px;
+#todo-list li.expanded textarea {
+  grid-column: 2/5;
+  grid-row: 2/3;
+  width: 100%;
+  max-width: 500px;
+  justify-self: left;
+}
+
+#todo-list li.expanded .expand {
+  grid-column: 5/6;
+  grid-row: 2/3;
+  align-self: end;
 }
 
 #todo-list li h3 {
-  margin: 0 0 0 5px;
-  padding: 0 0 0 10px;
   font-size: 20px;
-  font-weight: normal;
+  color: #52616b;
 }
 
 #todo-list .completed {
+  filter: opacity(0.5);
+}
+
+#todo-list .completed h3 {
   text-decoration: line-through;
 }
 
 #todo-list button {
-  padding: 10px;
   background: none;
   border: none;
   cursor: pointer;
-  font-family: monospace;
   color: #52616b;
 }
 
-.delete-todo:hover {
-  transform: scale(1.1);
-}
-
-.delete-todo:active {
-  transform: scale(1.2);
-}
-
-#add-todo {
-  display: flex;
-  align-items: baseline;
+#todo-list input[type='checkbox'] {
   margin: 0;
-  width: 500px;
-  height: 65px;
-  border: 2px solid #52616b;
 }
 
-#submit-todo {
-  margin-left: 15px;
-}
-
-#title-input {
-  margin-left: 5px;
-  padding: 0 0 0 10px;
-  height: 100%;
-  border: none;
-  background-color: #f0f5f9;
-  font-family: monospace;
-  font-size: 20px;
-  color: #52616b;
+#todo-list input[type='date'] {
+  height: 40px;
 }
 
 .hidden {
@@ -229,5 +215,31 @@ main {
 
 .description {
   padding: 10px;
-  margin: 0 auto;
+}
+
+/* todo form */
+#add-todo {
+  display: flex;
+  align-items: baseline;
+  margin: 10px 0;
+}
+
+#submit-todo {
+  padding: 10px 0;
+}
+
+#title-input {
+  margin-left: 5px;
+  padding: 0 0 0 10px;
+  line-height: 2em;
+  border: none;
+  background-color: #f0f5f9;
+  font-family: monospace;
+  font-size: 20px;
+  color: #1e2022;
+}
+
+#title-input:focus,
+#title-input:hover {
+  border-bottom: 2px solid #1e2022;
 }

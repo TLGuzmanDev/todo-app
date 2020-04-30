@@ -24,4 +24,4 @@ function createID() {
   return Math.floor(Math.random() * Date.now());
 }
 
-export { Project };
+export default Project;

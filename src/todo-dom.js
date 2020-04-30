@@ -1,5 +1,5 @@
 import { getLocalProjects } from './index';
-import { Todo } from './todo';
+import Todo from './todo';
 import { addProjectElement } from './project-dom';
 
 /* add todo object to its parent project and
@@ -41,16 +41,16 @@ function createTodoElement(todo) {
   deleteIcon.classList.add('fa-trash-alt');
   deleteBtn.classList.add('delete-todo');
 
-  setCheckboxEvent(checkbox, heading);
+  setCheckboxEvent(checkbox, todoElement);
   setDeleteEvent(deleteBtn, title);
 
   deleteBtn.appendChild(deleteIcon);
   todoElement.appendChild(checkbox);
   todoElement.appendChild(heading);
-  todoElement.appendChild(deleteBtn);
   todoElement.appendChild(dateInput);
   todoElement.appendChild(priorityInput);
   todoElement.appendChild(descriptionInput);
+  todoElement.appendChild(deleteBtn);
   todoElement.appendChild(expandBtn);
 
   setExpandEvent(expandBtn, priorityInput, descriptionInput, todoElement);
@@ -146,9 +146,9 @@ function setDesEvent(input, todo) {
   });
 }
 
-function setCheckboxEvent(button, heading) {
+function setCheckboxEvent(button, element) {
   button.addEventListener('click', () => {
-    heading.classList.toggle('completed');
+    element.classList.toggle('completed');
   });
 }
 
