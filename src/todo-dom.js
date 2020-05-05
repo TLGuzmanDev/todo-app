@@ -86,6 +86,7 @@ function createDateInput(todo) {
   dateInput.classList.add('date');
   dateInput.type = 'date';
   dateInput.value = dateString;
+  dateInput.required = true;
   setDateEvent(dateInput, todo);
   return dateInput;
 }
